@@ -72,3 +72,16 @@ perf_event      0       59      1
 net_prio        0       59      1
 pids    0       59      1
 ```
+
+## cgroup file system
+
+cgroups kernel code is located under `linux/kernel/cgroup` directory.  
+`cgroup.c` has call for `kernfs_create_root` kernel API to create new  
+file system.  
+
+Above we used the command `sudo mount -t cgroup -o cpu none /sys/fs/cgroup/cpu`  
+in order to add new controller to the cgroups.  
+This is implemented via the cgroup file system.  
+The read/write and other operations are described in `cgroup.c` file.  
+[cgroup.c link](https://elixir.bootlin.com/linux/v6.1.58/source/kernel/cgroup/cgroup.c#L2086)  
+  
